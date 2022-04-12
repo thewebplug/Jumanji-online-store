@@ -1,5 +1,4 @@
 /* eslint-disable no-use-before-define */
-// WAGMI
 import { hideLoading, parseRequestUrl, rerender, showLoading, showMessage } from '../utils';
 import { deliverOrder, getOrder, getPaypalClientId, payOrder } from '../api';
 import { getUserInfo } from '../localStorage';
