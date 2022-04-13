@@ -1,9 +1,11 @@
 import { getProducts } from '../api';
 import Rating from '../components/Rating';
+import { parseRequestUrl } from '../utils';
 
 const HomeScreen = {
   render: async () => {
-    const products = await getProducts();
+    const {value} = parseRequestUrl();
+    const products = await getProducts(value);
     if(products.error){
       return `<div class="error">${products.error}</div>`
     }
