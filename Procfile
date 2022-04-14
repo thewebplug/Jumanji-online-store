@@ -1,1 +1,1 @@
-web: node frontend/src/index.js
+web: node dist/serverr.js
