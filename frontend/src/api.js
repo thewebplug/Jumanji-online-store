@@ -2,7 +2,7 @@ import axios from 'axios';
 import { apiUrl } from './config';
 import { getUserInfo } from './localStorage';
 
-export const getProducts = async (searchKeyword) => {
+export const getProducts = async (searchKeyword = '') => {
   try {
     let queryString = '?';
     if (searchKeyword) queryString += `searchKeyword=${searchKeyword}`;
@@ -61,6 +61,28 @@ export const createProduct = async () => {
     return { error: err.response.data.message || err.message };
   }
 };
+
+export const createReview = async (productId, review) => {
+  try {
+    const { token } = getUserInfo();
+    const response = await axios({
+      url: `${apiUrl}/api/products/${productId}/reviews`,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      data: review,
+    });
+    if (response.statusText !== 'Created') {
+      throw new Error(response.data.message);
+    }
+    return response.data;
+  } catch (err) {
+    return { error: err.response.data.message || err.message };
+  }
+}
+
 export const deleteProduct = async (productId) => {
   try {
     const { token } = getUserInfo();

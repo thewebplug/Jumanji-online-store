@@ -70,7 +70,9 @@ const OrderScreen = {
         showLoading();
         await deliverOrder(request.id);
         hideLoading();
-        showMessage('Order Delivered');
+        showMessage('Order Delivered', () => {
+          rerender(OrderScreen);
+        })
         rerender(OrderScreen);
       });
     }

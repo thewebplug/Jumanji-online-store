@@ -15,7 +15,7 @@ const orderSchema = new mongoose.Schema(
         },
       },
     ],
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },// the 'ref' property connects this user feild with the userModel i.e it is abele to access information that the user model gets. it is triggered by the .populate() method in the orderRouter.
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },// the 'ref' property connects this user feild with the userModel i.e it is able to access information that the user model gets. it is triggered by the .populate() method in the orderRouter.
     shipping: {
       address: String,
       city: String,
