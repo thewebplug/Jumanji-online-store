@@ -4,33 +4,33 @@ import { deliverOrder, getOrder, getOrders, getPaypalClientId} from '../api';
 import { getUserInfo } from '../localStorage';
 
 
-const addPaypalSdk =  async (totalPrice) => {
-  // const clientId = await getPaypalClientId();
+const addPaypalSdk = async (totalPrice) => {
+  const clientId = await getPaypalClientId();
   showLoading();
-    const paypalClientId = await getPaypalClientId();
-    console.log(paypalClientId);
+  if(!window.paypal){
     const script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = `https://www.paypal.com/sdk/js?client-id=${paypalClientId}&currency=USD`;
-    // script.async = true;
+    script.src = `https://www.paypal.com/sdk/js?client-id=AY3gK1nWwU3BFSa7GXqXe2VSWOa-FtD8VRtxaZNudc4CAaVSPYxiPUXSHamDxB0MGH8406wEfwRCYzI6&currency=USD`;
+    script.async = true;
     script.onload = () => finalTest(totalPrice);
-    document.body.appendChild(script);
-    
-  hideLoading();
+    document.body.appendChild(script)
+  }else{
+    finalTest(totalPrice);
+  }
 };
     /* const getTotalAmount = () => {
       const requestUrl = parseRequestUrl();
       
     } */
     // Set up a container element for the button
-    const finalTest = async (price) => {
-      const clientId = await getOrders();// flaw
+    const finalTest = async (totalPrice) => {
+      const clientIdll = await getOrders();// flaw
       paypal.Buttons({
         // Sets up the transaction when a payment button is clicked
         createOrder: (data, actions) => actions.order.create({
             purchase_units: [{
               amount: {
-                value: price // Can also reference a variable or function
+                value: totalPrice // Can also reference a variable or function
               }
             }]
           }),
@@ -46,6 +46,8 @@ const addPaypalSdk =  async (totalPrice) => {
             // Or go to another URL:  actions.redirect('thank_you.html');
           })
         }).render('#paypal-button-container');
+        hideLoading()
+        
       }
 const OrderScreen = {
   after_render: async () => {
