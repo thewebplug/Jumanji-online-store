@@ -66,6 +66,9 @@ button.primary {
 .fw {
   width: 100%;
 }
+#paypal-button-container {
+  width: 100%;
+}
 .success {
   color: #40c040;
 }
@@ -79,7 +82,7 @@ button.primary {
     "main"
     "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-rows: 5rem 3fr 5rem;
   height: 100%;
 }
 header {
@@ -614,6 +617,12 @@ ul.categories {
   color: #ffffff;
   cursor: pointer;
 }
+.hamburger {
+  color: white;
+}
+.hamburger:hover {
+  color: #f08040;
+}
 /* review */
 
 .review {
@@ -623,4 +632,28 @@ ul.categories {
 .review li {
   margin-bottom: 1rem;
   padding-bottom: 1rem;
+}
+
+/*Landing Page*/
+.landing-page {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+
+  background-size: cover;
+  display: table;
+  top: 0;
+}
+
+.landing-page .inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.fly-content h1 {
+  font-family: "Open Sans", sans-serif;
+  color: #000;
+  font-size: 550%;
+  text-shadow: 3px 3px #ff9b37;
 }

@@ -315,39 +315,6 @@ export const getMyOrders = async () => {
     return { error: err.response ? err.response.data.message : err.message };
   }
 };
-export const getPaypalClientId = async () => {
-  const response = await axios({
-    url: `${apiUrl}/api/paypal/clientId`,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  if (response.statusText !== 'OK') {
-    throw new Error(response.data.message);
-  }
-  return response.data.clientId;
-};
-
-export const payOrder = async (orderId, paymentResult) => {
-  try {
-    const { token } = getUserInfo();
-    const response = await axios({
-      url: `${apiUrl}/api/orders/${orderId}/pay`,
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      data: paymentResult,
-    });
-    if (response.statusText !== 'OK') {
-      throw new Error(response.data.message);
-    }
-    return response.data;
-  } catch (err) {
-    return { error: err.response ? err.response.data.message : err.message };
-  }
-};
 
 export const deliverOrder = async (orderId) => {
   try {
@@ -386,4 +353,18 @@ export const getSummary = async () => {
     }
   }catch(err){
     return { error: err.response ? err.response.data.message : err.message };  }
+};
+
+
+export const getPaypalClientId = async () => {
+  const response = await axios({
+    url: `${apiUrl}/api/paypal/clientId`,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  if (response.statusText !== 'OK') {
+    throw new Error(response.data.message);
+  }
+  return response.data.clientId;
 };
