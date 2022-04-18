@@ -29,7 +29,7 @@ const Header = {
       .addEventListener('submit', async (e) => {
         e.preventDefault();
         const searchKeyword = document.getElementById('q').value;
-        document.location.hash = `/?q=${searchKeyword}`;
+        document.location.hash = `/homescreen?q=${searchKeyword}`;
       });
 
     document

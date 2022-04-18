@@ -10,9 +10,8 @@ const HomeScreen = {
       return `<div class="error">${products.error}</div>`
     }
     return `
-
-
   
+
     <ul class="products">
       ${products
         .map(
