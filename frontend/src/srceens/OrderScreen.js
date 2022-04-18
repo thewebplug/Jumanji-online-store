@@ -19,10 +19,10 @@ const addPaypalSdk = async (totalPrice) => {
 };
 const handlePayment = (clientId, totalPrice) => {
    window.paypal.Button.render({
-     env:'production',
+     env:'sandbox',
      client: {
-       sandbox: '',
-       production: 'AXD2SQR1cB4GIq6AcPTlS7MIQJEE2yUoF5gkZ67aEs2OsTy2IBxs1KASBftmi1ugRBZx_n18Q5XZCwxW',
+       sandbox: clientId,
+       production: '',
      },
      locale: 'en_US',
      style:{
