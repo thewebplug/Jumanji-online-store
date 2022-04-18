@@ -36,6 +36,12 @@ const addPaypalSdk = async (totalPrice) => {
           }),
         // Finalize the transaction after payer approval
         onApprove: (data, actions) => actions.order.capture().then((orderData) => {
+            console.log('orderID')
+            console.log(data.orderID)
+            console.log('payerID')
+            console.log(data.payerID)
+            console.log('paymentID')
+            console.log(data)
             // Successful capture! For dev/demo purposes:
             console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
             const transaction = orderData.purchase_units[0].payments.captures[0];
