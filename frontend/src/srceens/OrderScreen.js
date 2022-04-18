@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 import { hideLoading, parseRequestUrl, rerender, showLoading, showMessage } from '../utils';
-import { deliverOrder, getOrder, getOrders, getPaypalClientId} from '../api';
+import { deliverOrder, getOrder, getOrders, getPaypalClientId, payOrder} from '../api';
 import { getUserInfo } from '../localStorage';
 
 
@@ -35,17 +35,19 @@ const addPaypalSdk = async (totalPrice) => {
             }]
           }),
         // Finalize the transaction after payer approval
-        onApprove: (data, actions) => actions.order.capture().then((orderData) => {
-            console.log('orderID')
-            console.log(data.orderID)
-            console.log('payerID')
-            console.log(data.payerID)
-            console.log('paymentID')
-            console.log(data)
+        onApprove: (data, actions) => actions.order.capture().then( async(orderData) => {
+           showLoading();
+           await payOrder(parseRequestUrl().id, {
+            orderID: data.orderID,// diff from order Id in database. This is the orderId in the paypal website.
+            payerID: data.payerID,
+            paymentID: data.paymentID,
+           });
+           hideLoading();
             // Successful capture! For dev/demo purposes:
             console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-            const transaction = orderData.purchase_units[0].payments.captures[0];
-            alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+            showMessage('Payment Sucessful!', () => {
+              rerender(OrderScreen);
+            })
             // When ready to go live, remove the alert and show a success message within this page. For example:
             // const element = document.getElementById('paypal-button-container');
             // element.innerHTML = '<h3>Thank you for your payment!</h3>';
@@ -64,14 +66,13 @@ const OrderScreen = {
   after_render: async () => {
     const request = parseRequestUrl();
     if(document.getElementById('deliver-order-button')){
-      document.addEventListener('click', async() => {
+      document.getElementById('deliver-order-button').addEventListener('click', async() => {
         showLoading();
         await deliverOrder(request.id);
         hideLoading();
-        showMessage('Order Delivered', () => {
-          rerender(OrderScreen);
-        })
+        showMessage('Ordere Delivred');
         rerender(OrderScreen);
+        
       });
     }
   },
@@ -163,7 +164,6 @@ const OrderScreen = {
                    isPaid && !isDelivered && isAdmin ? 
                    `<button id="deliver-order-button" class="primary fw">Deliver Order</button>` : ''
                  }</li>
-                 <li>
                  
         </div>
       </div>
