@@ -44,7 +44,12 @@ const addPaypalSdk = async (totalPrice) => {
             // const element = document.getElementById('paypal-button-container');
             // element.innerHTML = '<h3>Thank you for your payment!</h3>';
             // Or go to another URL:  actions.redirect('thank_you.html');
-          })
+          }),
+          onError (err) {
+            showMessage(err);
+            // For example, redirect to a specific error page
+            // window.location.href = "/your-error-page-here";
+          }
         }).render('#paypal-button-container');
         hideLoading()
         
