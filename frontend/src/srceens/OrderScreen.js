@@ -1,7 +1,8 @@
 /* eslint-disable no-use-before-define */
 import { hideLoading, parseRequestUrl, rerender, showLoading, showMessage } from '../utils';
-import { deliverOrder, getOrder, getPaypalClientId, payOrder } from '../api';
+import { deliverOrder, getOrder, getOrders, getPaypalClientId, payOrder} from '../api';
 import { getUserInfo } from '../localStorage';
+
 
 const addPaypalSdk = async (totalPrice) => {
   const clientId = await getPaypalClientId();
@@ -9,71 +10,71 @@ const addPaypalSdk = async (totalPrice) => {
   if(!window.paypal){
     const script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = 'https://www.paypalobjects.com/api/checkout.js';
+    script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD`;
     script.async = true;
-    script.onload = () => handlePayment(clientId, totalPrice);
+    script.onload = () => finalTest(totalPrice);
     document.body.appendChild(script)
   }else{
-    handlePayment(clientId, totalPrice);
+    finalTest(totalPrice);
   }
 };
-const handlePayment = (clientId, totalPrice) => {
-   window.paypal.Button.render({
-     env:'sandbox',
-     client: {
-       sandbox: clientId,
-       production: '',
-     },
-     locale: 'en_US',
-     style:{
-       size: 'responsive',
-       color: 'gold',
-       shape: 'pill',
-     },
 
-     commit: true,
-     payment(data, actions){
-       return actions.payment.create({
-         transactions: [
-           {
-             amount: {
-               total: totalPrice,
-               currency: 'USD',
-             },
-           },
-         ],
-       });
-     },
-     onAuthorize(data, actions){
-       return actions.payment.execute().then(async() => {
-         showLoading();
-          await payOrder(parseRequestUrl().id, {
+
+    /* const getTotalAmount = () => {
+      const requestUrl = parseRequestUrl();
+      
+    } */
+    // Set up a container element for the button
+    const finalTest = async (totalPrice) => {
+      const clientIdll = await getOrders();// flaw
+      paypal.Buttons({
+        // Sets up the transaction when a payment button is clicked
+        createOrder: (data, actions) => actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: totalPrice // Can also reference a variable or function
+              }
+            }]
+          }),
+        // Finalize the transaction after payer approval
+        onApprove: (data, actions) => actions.order.capture().then( async(orderData) => {
+           showLoading();
+           await payOrder(parseRequestUrl().id, {
             orderID: data.orderID,// diff from order Id in database. This is the orderId in the paypal website.
             payerID: data.payerID,
             paymentID: data.paymentID,
-          });
-         hideLoading();
-         showMessage('Payment was sucessful.', () => {
-           rerender(OrderScreen);
-         });
-       });
-     },
-   }, '#paypal-button').then(() => {
-     hideLoading();
-   });
-};
+           });
+           hideLoading();
+            // Successful capture! For dev/demo purposes:
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            showMessage('Payment Sucessful!', () => {
+              rerender(OrderScreen);
+            })
+            // When ready to go live, remove the alert and show a success message within this page. For example:
+            // const element = document.getElementById('paypal-button-container');
+            // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+            // Or go to another URL:  actions.redirect('thank_you.html');
+          }),
+          onError (err) {
+            showMessage(err);
+            // For example, redirect to a specific error page
+            // window.location.href = "/your-error-page-here";
+          }
+        }).render('#paypal-button-container');
+        hideLoading()
+        
+      }
 const OrderScreen = {
   after_render: async () => {
     const request = parseRequestUrl();
     if(document.getElementById('deliver-order-button')){
-      document.addEventListener('click', async() => {
+      document.getElementById('deliver-order-button').addEventListener('click', async() => {
         showLoading();
         await deliverOrder(request.id);
         hideLoading();
-        showMessage('Order Delivered', () => {
-          rerender(OrderScreen);
-        })
+        showMessage('Ordere Delivred');
         rerender(OrderScreen);
+        
       });
     }
   },
@@ -94,10 +95,12 @@ const OrderScreen = {
       isPaid,
       paidAt,
     } = await getOrder(request.id);
+    
     if(!isPaid){
-      addPaypalSdk(totalPrice);
+      addPaypalSdk(totalPrice.toString()); // kickstart
     }
     return `
+    
     <div>
       <h1>Order ${_id}</h1>
       <div class="order">
@@ -157,12 +160,12 @@ const OrderScreen = {
                  <li><div>Shipping</div><div>$${shippingPrice}</div></li>
                  <li><div>Tax</div><div>$${taxPrice}</div></li>
                  <li class="total"><div>Order Total</div><div>$${totalPrice}</div></li>
-                 <li><div class="fw" id="paypal-button"></div></li> 
+                 <li><div id="paypal-button-container"></div>
+                 </li> 
                  <li>${
                    isPaid && !isDelivered && isAdmin ? 
                    `<button id="deliver-order-button" class="primary fw">Deliver Order</button>` : ''
                  }</li>
-                 <li>
                  
         </div>
       </div>

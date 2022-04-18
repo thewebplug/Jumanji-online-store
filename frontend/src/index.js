@@ -16,9 +16,11 @@ import ProductListScreen from './srceens/ProductListScreen';
 import ProductEditScreen from './srceens/ProductEditScreen';
 import OrderListScreen from './srceens/OrderListScreen';
 import Aside from './components/Aside';
+import MainScreen from './srceens/MainScreen';
 
 const routes = {
-  '/': HomeScreen,
+  '/': MainScreen,
+  '/homescreen': HomeScreen,
   '/product/:id/edit': ProductEditScreen,
   '/product/:id': ProductScreen,
   '/order/:id': OrderScreen,

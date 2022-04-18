@@ -8,11 +8,6 @@ export const parseRequestUrl = () => {
   const r = url.split('/');
   const q = queryString.split('=');
   
-  console.log(address);
-  console.log(uddd);
-  console.log(url);
-  
-
   return {
     resource: r[1],
     id: r[2],
