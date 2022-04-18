@@ -112,8 +112,7 @@ const OrderScreen = {
             ${shipping.country}
             </div>
             ${isDelivered ? `<div class="success">Delivered at ${deliveredAt}</div>`:
-            `<div class="error">Not Delivered</div>`
-          }
+            `<div class="error">Not Delivered</div>`}
           </div>
           <div>
             <h2>Payment</h2>
@@ -121,8 +120,7 @@ const OrderScreen = {
               Payment Method : ${payment.paymentMethod}
             </div>
             ${isPaid ? `<div class="success">Paid at ${paidAt}</div>`:
-            `<div class="error">Not Paid</div>`
-          }
+            `<div class="error">Not Paid</div>`}
           </div>
           <div>
             <ul class="cart-list-container">
@@ -145,28 +143,26 @@ const OrderScreen = {
                   </div>
                   <div class="cart-price"> $${item.price}</div>
                 </li>
-                `
-                )
-                .join('\n')}
+                `).join('\n')}
             </ul>
           </div>
         </div>
         <div class="order-action">
-           <ul>
+            <ul>
                 <li>
-                  <h2>Order Summary</h2>
-                 </li>
-                 <li><div>Items</div><div>$${itemsPrice}</div></li>
-                 <li><div>Shipping</div><div>$${shippingPrice}</div></li>
-                 <li><div>Tax</div><div>$${taxPrice}</div></li>
-                 <li class="total"><div>Order Total</div><div>$${totalPrice}</div></li>
-                 <li><div id="paypal-button-container"></div>
-                 </li> 
-                 <li>${
-                   isPaid && !isDelivered && isAdmin ? 
-                   `<button id="deliver-order-button" class="primary fw">Deliver Order</button>` : ''
-                 }</li>
-                 
+                    <h2>Order Summary</h2>
+                </li>
+                <li><div>Items</div><div>$${itemsPrice}</div></li>
+                <li><div>Shipping</div><div>$${shippingPrice}</div></li>
+                <li><div>Tax</div><div>$${taxPrice}</div></li>
+                <li class="total"><div>Order Total</div><div>$${totalPrice}</div></li>
+                <li><div id="paypal-button-container"></div></li> 
+                <li>${
+                  isPaid && !isDelivered && isAdmin ? 
+                  `<button id="deliver-order-button" class="primary fw">Deliver Order</button>` : ''
+                  }
+                </li>
+            </ul>
         </div>
       </div>
     </div>
