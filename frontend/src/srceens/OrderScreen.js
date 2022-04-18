@@ -10,7 +10,7 @@ const addPaypalSdk = async (totalPrice) => {
   if(!window.paypal){
     const script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = `https://www.paypal.com/sdk/js?client-id=AY3gK1nWwU3BFSa7GXqXe2VSWOa-FtD8VRtxaZNudc4CAaVSPYxiPUXSHamDxB0MGH8406wEfwRCYzI6&currency=USD`;
+    script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD`;
     script.async = true;
     script.onload = () => finalTest(totalPrice);
     document.body.appendChild(script)
