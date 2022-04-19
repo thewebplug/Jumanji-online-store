@@ -699,8 +699,10 @@ ul.categories {
 @media (max-width: 1266px) {
   .profile-info {
     flex-basis: 100%;
+    width: 100%;
   }
   .profile-orders {
     flex-basis: 100%;
+    width: 100%;
   }
 }
