@@ -14,14 +14,14 @@ const MainScreen = {
     <section class="landing-page">
  	<div class="inner">
  		<div class="landing-page-content">
- 			
+     
  			<section class="os-animation" data-os-animation="bounceInUp" data-os-animation-delay="0s">
- 				<h1>JUMANJI</h1>
- 				<h1 class="shop-now" style="font-size: 40px;">SHOP NOW</h1>
+ 				<h1>SLIDERS</h1>
+ 				<h1 class="shop-now" style="font-size: 40px;">Drip with style</h1>
  			</section>
 
  			<section class="os-animation" data-os-animation="bounceInUp" data-os-animation-delay=".1s">
- 				  <a class="btn" href="/#/homescreen">
+ 				  <a class="btn" href="#shop">
             <i class="fas fa-shopping-cart home-cart-icon"></i>
           </a>
           <br><br><br><br>
@@ -31,14 +31,14 @@ const MainScreen = {
                <div class="row iconsLL text-center">
                   <div class="col-md-3">
                     <div class="feature">
-                      <a href="/#/homescreen?q=shoe"><img src="https://img.icons8.com/wired/64/000000/trainers.png"></a>
+                      <a href="/#/homescreen?q=shoe"><i class="fad fa white fa-shoe-prints"></i></a>
                     </div>
                   </div>
                 
                 
                   <div class="col-md-3">
                     <div class="feature">
-                      <a href="/#/homescreen?q=shirt"><img src="https://img.icons8.com/pastel-glyph/64/000000/t-shirt--v3.png"></a>
+                      <a href="/#/homescreen?q=shirt"><i class="fas white fa-tshirt"></i></a>
                     </div>
                   </div>
                 
@@ -64,7 +64,7 @@ const MainScreen = {
  	</div>
  </section>
 
-    <ul class="products">
+    <ul id="shop" class="products">
       ${products
         .map(
           (product) => `
@@ -81,7 +81,7 @@ const MainScreen = {
         <div class="product-rating">
           ${Rating.render({
             value: product.rating,
-            text: `${product.numReviews} reviews`,
+            text: `${product.numReviews} review(s)`,
           })}
         </div>
         <div class="product-brand">

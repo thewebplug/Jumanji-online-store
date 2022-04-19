@@ -87,20 +87,24 @@ button.primary {
 }
 header {
   grid-area: header;
-  background-color: #203040;
+  background: url(images/header.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  display: table;
+  top: 0;
   color: #ffffff;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
   flex-direction: row;
+  z-index: 1;
 }
 header a {
-  color: #ffffff;
+  color: #f08040;
   text-decoration: none;
   padding-right: 1rem;
 }
 header a:hover {
-  color: #f08040;
+  color: #ffffff;
 }
 .brand-title {
   width: 100%;
@@ -135,9 +139,13 @@ header a:hover {
 .sign-in .dashboard-icon {
   flex-basis: 50%;
   text-align: center;
+  font-weight: bolder;
 }
 footer {
-  background-color: #203040;
+  background: url(images/header.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  display: table;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -564,7 +572,7 @@ aside.open {
   color: #808080;
 }
 #aside-open-button {
-  background-color: #203040;
+  background-color: transparent;
   border: none;
   width: 100%;
   height: 100%;
@@ -572,11 +580,6 @@ aside.open {
   display: flex;
   align-items: center !important;
   justify-content: center;
-}
-#aside-open-button {
-  font-size: 100%;
-  margin: 0;
-  padding: 0;
 }
 .aside-close-button {
   width: 3rem;
@@ -618,10 +621,10 @@ ul.categories {
   cursor: pointer;
 }
 .hamburger {
-  color: white;
+  color: #f08040;
 }
 .hamburger:hover {
-  color: #f08040;
+  color: white;
 }
 /* review */
 
@@ -639,7 +642,7 @@ ul.categories {
   width: 100%;
   max-height: 10px;
   margin: auto;
-  background: url(images/optimized.jpg) no-repeat 50% 50%;
+  background: url(images/main.jpg) no-repeat 50% 50%;
   background-size: cover;
   display: table;
   top: 0;
@@ -666,8 +669,14 @@ ul.categories {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  font-size: 290%;
 }
-
+.white {
+  color: #f08040;
+}
+.white:hover {
+  color: #ffffff;
+}
 .shop-now {
   margin-top: -30px;
 }
