@@ -31,28 +31,27 @@ const MainScreen = {
                <div class="row iconsLL text-center">
                   <div class="col-md-3">
                     <div class="feature">
-                      <a href="/#/homescreen?q=shoe"><i class="fad fa white fa-shoe-prints"></i></a>
+                    <a href="/#/homescreen?q=trainers"><img src="https://img.icons8.com/wired/60/f08040/trainers.png"></a>
                     </div>
                   </div>
                 
                 
                   <div class="col-md-3">
                     <div class="feature">
-                      <a href="/#/homescreen?q=shirt"><i class="fas white fa-tshirt"></i></a>
+                      <a href="/#/homescreen?q=shirt"><img src="https://img.icons8.com/pastel-glyph/60/f08040/t-shirt--v3.png"></a>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-3">
+                    <div class="feature">
+                      <a href="/#/homescreen?q=bandana"><img src="https://img.icons8.com/ios-glyphs/60/f08040/bandana.png"/></a>
                     </div>
                   </div>
                 
                 
                   <div class="col-md-3">
                     <div class="feature">
-                      <a href="/#/homescreen?q=dress"><img src="https://img.icons8.com/ios/50/000000/wedding-dress.png"></a>
-                    </div>
-                  </div>
-                
-                
-                  <div class="col-md-3">
-                    <div class="feature">
-                      <a href="/#/homescreen?q=cap"><img src="https://img.icons8.com/ios-glyphs/50/000000/cap.png"></a>
+                      <a href="/#/homescreen?q=cap"><img src="https://img.icons8.com/pastel-glyph/60/f08040/cap--v1.png"/></a>
                     </div>
                   </div>
                </div>
