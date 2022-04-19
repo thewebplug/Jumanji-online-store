@@ -5,7 +5,7 @@ const Header = {
     const { name, isAdmin } = getUserInfo();
     return ` 
   <button id="aside-open-button">
-      <p><i class="fas fa-hamburger hamburger"></i></p>
+      <i class="fas fa-hamburger hamburger"></i>
   </button>
   <div class="brand-title">
     <a href="/#/">Sliders</a>
