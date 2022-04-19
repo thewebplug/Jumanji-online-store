@@ -394,15 +394,18 @@ footer {
 /* Profile */
 .profile {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   align-items: flex-start;
 }
 .profile-info {
-  flex: 1 1 20rem;
+  flex-basis: 25%;
+  width: 100%;
 }
 .profile-orders {
-  flex: 3 1 60rem;
-  margin-left: 1rem;
+  flex-basis: 73%;
+  width: 100%;
 }
 
 table {
@@ -690,4 +693,14 @@ ul.categories {
   border: 2px solid #ff9b37;
   padding: 10px 20px;
   border-radius: 5px;
+}
+
+/*media queries*/
+@media (max-width: 1266px) {
+  .profile-info {
+    flex-basis: 100%;
+  }
+  .profile-orders {
+    flex-basis: 100%;
+  }
 }

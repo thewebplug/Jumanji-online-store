@@ -8,7 +8,7 @@ const Header = {
       <p><i class="fas fa-hamburger hamburger"></i></p>
   </button>
   <div class="brand-title">
-    <a href="/#/">jumanji</a>
+    <a href="/#/">Sliders</a>
   </div>
   <div class="search">
   <form class="search-form"  id="search-form">
