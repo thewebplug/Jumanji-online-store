@@ -303,21 +303,15 @@ footer {
   justify-content: center;
   align-items: flex-start;
   height: 100%;
-  /*background-color: green;*/
-}
-#profile-form {
-  /*background-color: black;*/
-  width: 100%;
 }
 .form-items {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 32rem;
   padding: 2rem;
   border: 0.1rem #c0c0c0 solid;
   border-radius: 0.5rem;
   list-style-type: none;
-  /*background-color: yellow;*/
 }
 .form-items li {
   display: flex;

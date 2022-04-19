@@ -72,8 +72,6 @@ const ProfileScreen = {
             <tr>
               <th>ORDER ID</th>
               <th>PAID</th>
-              <th>DELIVERED</th>
-              <th>ACTIONS</th>
             </tr>
           </thead>
           <tbody>
@@ -82,8 +80,6 @@ const ProfileScreen = {
               <tr>
                 <td>${order._id}</td>
                 <td>${order.paidAt || 'No'}</td>
-                <td>${order.deliverdAt || 'No'}</td>
-                <td><a href="/#/order/${order._id}">DETAILS</a></td>
               <tr>
             `).join('\n')
             }
