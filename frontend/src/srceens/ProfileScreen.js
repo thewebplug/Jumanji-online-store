@@ -65,30 +65,28 @@ const ProfileScreen = {
           </form>
         </div>
       </div>
-      <div class="table-responsive profile-orders">
-        <h2>Order History</h2>
-          <table class="table">
+      <div class="profile-orders">
+      <h2>Order History</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ORDER ID</th>
+              <th>DATE</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${orders.length === 0 ? `<tr><td colspan="6">No Order Found.</td></tr>`:
+            orders.map(order => `
               <tr>
-                <th>ORDER ID</th>
-                <th>DATE</th>
-                <th>TOTAL</th>
-                <th>PAID</th>
-                <th>DELIVERED</th>
-                <th>ACTIONS</th>
-              </tr>
-              ${orders.length === 0 ? `<tr><td colspan="6">No Order Found.</td></tr>`:
-              orders.map(order => `
-                <tr>
-                  <td>${order._id}</td>
-                  <td>${order.createdAt}</td>
-                  <td>${order.totalPrice}</td>
-                  <td>${order.paidAt || 'No'}</td>
-                  <td>${order.deliveryAt || 'No'}</td>
-                  <td><a href="/#/order/${order._id}">DETIALS</a> </td>
-                <tr>
-              `).join('\n')
-              }
-          </table>
+                <td>${order._id}</td>
+                <td>${order.createdAt}</td>
+                <td><a href="/#/order/${order._id}">DETAILS</a></td>
+              <tr>
+            `).join('\n')
+            }
+          </tbody>
+        </table>
       </div>
     </div>
     

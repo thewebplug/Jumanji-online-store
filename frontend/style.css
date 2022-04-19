@@ -407,7 +407,7 @@ footer {
   flex-basis: 73%;
   width: 100%;
 }
-/*
+
 table {
   width: 100%;
 }
@@ -420,7 +420,6 @@ tbody > tr:nth-child(odd) {
 td {
   padding: 0.5rem;
 }
-*/
 /* Dashboard */
 .dashboard {
   display: flex;
