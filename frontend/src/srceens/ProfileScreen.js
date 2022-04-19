@@ -71,8 +71,6 @@ const ProfileScreen = {
           <thead>
             <tr>
               <th>ORDER ID</th>
-              <th>DATE</th>
-              <th>TOTAL</th>
               <th>PAID</th>
               <th>DELIVERED</th>
               <th>ACTIONS</th>
