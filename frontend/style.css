@@ -625,6 +625,7 @@ ul.categories {
 }
 .hamburger {
   color: #f08040;
+  margin-bottom: 50px;
 }
 .hamburger:hover {
   color: white;
