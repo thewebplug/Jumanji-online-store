@@ -625,7 +625,6 @@ ul.categories {
 }
 .hamburger {
   color: #f08040;
-  margin-bottom: 50px;
 }
 .hamburger:hover {
   color: white;
@@ -705,8 +704,5 @@ ul.categories {
   .profile-orders {
     flex-basis: 100%;
     width: 100%;
-  }
-  .hamburger {
-    margin-bottom: 50px;
   }
 }
