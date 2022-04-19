@@ -80,7 +80,7 @@ const ProfileScreen = {
             orders.map(order => `
               <tr>
                 <td>${order._id}</td>
-                <td>2022-04-18</td>
+                <td>${order.createdAt.toString().slice(0, 10)}</td>
                 <td><a href="/#/order/${order._id}">DETAILS</a></td>
               <tr>
             `).join('\n')
