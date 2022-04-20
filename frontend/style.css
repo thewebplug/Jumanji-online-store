@@ -311,7 +311,6 @@ footer {
   border: 0.1rem #c0c0c0 solid;
   border-radius: 0.5rem;
   list-style-type: none;
-  margin-top: 100px;
 }
 .form-items li {
   display: flex;
