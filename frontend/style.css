@@ -699,15 +699,3 @@ ul.categories {
   padding: 10px 20px;
   border-radius: 5px;
 }
-
-/*media queries*/
-@media (max-width: 1266px) {
-  .profile-info {
-    flex-basis: 100%;
-    width: 100%;
-  }
-  .profile-orders {
-    flex-basis: 100%;
-    width: 100%;
-  }
-}

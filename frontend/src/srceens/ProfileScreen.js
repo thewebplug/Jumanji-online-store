@@ -84,7 +84,7 @@ const ProfileScreen = {
                       (order) => `
           <tr>
             <td>${order._id}</td>
-            <td>${order.createdAt}</td>
+            <td>${order.createdAt.slice(0, 10)}</td>
             <td><a href="/#/order/${order._id}">DETIALS</a> </td>
           </tr>
           `
