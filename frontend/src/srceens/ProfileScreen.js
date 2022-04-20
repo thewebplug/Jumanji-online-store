@@ -65,9 +65,9 @@ const ProfileScreen = {
           </form>
         </div>
       </div>
-      <div class="profile-orders">
+      <div class="table-responsive profile-orders">
       <h2>Order History</h2>
-        <table>
+        <table class="table">
           <thead>
             <tr>
               <th>ORDER ID</th>
@@ -76,17 +76,24 @@ const ProfileScreen = {
             </tr>
           </thead>
           <tbody>
-            ${orders.length === 0 ? `<tr><td colspan="6">No Order Found.</td></tr>`:
-            orders.map(order => `
-              <tr>
-                <td>${order._id}</td>
-                <td>${order.createdAt.toString().slice(0, 10)}</td>
-                <td><a href="/#/order/${order._id}">DETAILS</a></td>
-              <tr>
-            `).join('\n')
+            ${
+              orders.length === 0
+                ? `<tr><td colspan="6">No Order Found.</tr>`
+                : orders
+                    .map(
+                      (order) => `
+          <tr>
+            <td>${order._id}</td>
+            <td>${order.createdAt}</td>
+            <td><a href="/#/order/${order._id}">DETIALS</a> </td>
+          </tr>
+          `
+                    )
+                    .join('\n')
             }
           </tbody>
         </table>
+
       </div>
     </div>
     

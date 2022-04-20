@@ -16,19 +16,19 @@ const MainScreen = {
  		<div class="landing-page-content">
      
  			<section class="os-animation" data-os-animation="bounceInUp" data-os-animation-delay="0s">
- 				<h1>SLIDERS</h1>
+ 				<h1 class="main-text">SLIDERS</h1>
  				<h1 class="shop-now" style="font-size: 40px;">Drip with style</h1>
  			</section>
 
  			<section class="os-animation" data-os-animation="bounceInUp" data-os-animation-delay=".1s">
- 				  <a class="btn" href="#shop">
+ 				  <a class="shop-icon btn" href="#shop">
             <i class="fas fa-shopping-cart home-cart-icon"></i>
           </a>
           <br><br><br><br>
 
           <div class="narrow">
             <div class="col-12">
-               <div class="row iconsLL text-center">
+               <div class="iconsLL text-center">
                   <div class="col-md-3">
                     <div class="feature">
                     <a href="/#/homescreen?q=trainers"><img src="https://img.icons8.com/wired/60/f08040/trainers.png"></a>
@@ -63,7 +63,7 @@ const MainScreen = {
  	</div>
  </section>
 
-    <ul id="shop" class="products">
+    <ul id="shop" data-bs-spy="scroll" data-bs-target="#header-container" data-bs-offset="0" class="scrollspy-example products" tabindex="0">
       ${products
         .map(
           (product) => `
