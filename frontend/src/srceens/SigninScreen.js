@@ -42,13 +42,12 @@ const SigninScreen = {
             <input type="password" name="password" id="password" />
           </li>
           <li>
-            <button type="submit" class="primary">Signin</button>
+            <button id="bul" type="submit" class="primary">Signin</button>
           </li>
           <li>
-            <div>
-              New User?
-              <a href="/#/register">Create your account </a>
-            </div>
+            <button id="register">
+              <a style="color: #ffffff" class="create-account" href="/#/register">Create your account </a>
+            </button>
           </li>
         </ul>
       </form>

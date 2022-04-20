@@ -12,11 +12,12 @@ body {
   margin: 0;
 }
 a {
-  color: #000000;
+  color: #000;
   text-decoration: none;
 }
 a:hover {
-  color: #f08040;
+  color: #ff9b37;
+  transition: 500ms;
 }
 button {
   cursor: pointer;
@@ -35,7 +36,20 @@ button:hover {
   border: 0.1rem #404040 solid;
 }
 button.primary {
-  background-color: #f0c040;
+  background-color: #606060;
+  color: #ff9b37;
+  border: 0.1rem #ff9b37 solid;
+}
+button.primary:hover {
+  background-color: #ff9b37;
+  color: #ffffff;
+  border: 0.1rem #ff9b37 solid;
+  transition: 500ms;
+}
+#register {
+  background-color: #ff9b37;
+  color: #ffffff;
+  border: none;
 }
 .overlay {
   display: none;
@@ -150,6 +164,9 @@ footer {
   align-items: center;
   color: #ffffff;
 }
+.main-container {
+  background-color: yellow !important;
+}
 /* Products */
 .products {
   display: flex;
@@ -202,6 +219,7 @@ footer {
 }
 .content {
   padding: 1rem;
+  background-color: #606060;
 }
 /* Product Details */
 .details {
@@ -302,20 +320,33 @@ footer {
   justify-content: center;
   align-items: flex-start;
   height: 100%;
+  background-color: #606060;
+  color: #ff9b37;
+}
+.create-account {
+  color: #ff9b37;
+}
+.create-account:hover {
+  color: #ffffff;
+}
+.new-user {
+  color: #ffffff;
 }
 .form-items {
   display: flex;
   flex-direction: column;
-  width: 32rem;
+  width: 55rem;
   padding: 2rem;
-  border: 0.1rem #c0c0c0 solid;
-  border-radius: 0.5rem;
+  border: 0.4rem #ff9b37 solid;
+  border-radius: 2rem;
   list-style-type: none;
-  margin-top: 100px;
+  align-items: center;
+  margin-top: 30px;
 }
 .form-items li {
   display: flex;
   flex-direction: column;
+  width: 90%;
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
@@ -628,6 +659,7 @@ ul.categories {
 }
 .hamburger:hover {
   color: white;
+  transition: 100ms;
 }
 /* review */
 
@@ -674,11 +706,24 @@ ul.categories {
 .shop-icon {
   margin-top: 10px;
 }
+.feature {
+  width: 100px;
+  text-align: center;
+}
+
 .iconsLL {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-content: center;
   font-size: 290%;
+}
+.cat-icons {
+  width: 100px;
+}
+.cat-icons:hover {
+  transform: scale(1.3);
+  transition: 200ms;
 }
 .white {
   color: #f08040;
@@ -711,4 +756,26 @@ ul.categories {
     flex-basis: 100%;
     width: 100%;
   }
+}
+
+@media (max-width: 558px) {
+  .form-items {
+    width: 35rem;
+    height: 60rem;
+  }
+}
+
+@media (max-width: 282px) {
+  .form-items {
+    width: 29rem;
+    border: 0.4rem #ff9b37 solid;
+  }
+}
+
+/*Event classes*/
+
+.click-transform {
+  background-color: #606060;
+  color: #ffffff;
+  transition: 100000ms;
 }
