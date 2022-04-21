@@ -100,7 +100,7 @@ const PlaceOrderScreen = {
                   </div>
                   <div class="cart-name">
                     <div>
-                      <a href="/#/product/${item.product}">${item.name} </a>
+                      <a class="white" href="/#/product/${item.product}">${item.name} </a>
                     </div>
                     <div> Qty: ${item.qty} </div>
                   </div>
@@ -117,9 +117,9 @@ const PlaceOrderScreen = {
                 <li>
                   <h2>Order Summary</h2>
                  </li>
-                 <li><div>Items</div><div>$${itemsPrice}</div></li>
-                 <li><div>Shipping</div><div>$${shippingPrice}</div></li>
-                 <li><div>Tax</div><div>$${taxPrice}</div></li>
+                 <li><div>Items</div><div class="white">$${itemsPrice}</div></li>
+                 <li><div>Shipping</div><div class="white">$${shippingPrice}</div></li>
+                 <li><div>Tax</div><div class="white">$${taxPrice}</div></li>
                  <li class="total"><div>Order Total</div><div>$${totalPrice}</div></li> 
                  <li>
                  <button id="placeorder-button" class="primary fw">

@@ -38,7 +38,7 @@ const ProfileScreen = {
       <div class="profile-info">
         <div class="form-container">
           <form id="profile-form">
-            <ul class="form-items">
+            <ul class="form-items-profile">
               <li>
                 <h1>User Profile</h1>
               </li>

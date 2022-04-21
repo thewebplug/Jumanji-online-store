@@ -82,7 +82,7 @@ const CartScreen = {
               </div>
               <div class="cart-name">
                 <div>
-                  <a href="/#/product/${item.product}">
+                  <a class="white" href="/#/product/${item.product}">
                     ${item.name}
                   </a>
                 </div>
@@ -103,7 +103,7 @@ const CartScreen = {
                   </button>
                 </div>
               </div>
-              <div class="cart-price">
+              <div class="cart-price white">
                 $${item.price}
               </div>
             </li>
@@ -114,7 +114,7 @@ const CartScreen = {
         </ul>
       </div>
       <div class="cart-action">
-          <h3>
+          <h3 style="color: #ffffff; font-weigth: bolder;">
             Subtotal (${cartItems.reduce((a, c) => a + c.qty, 0)} items)
             :
             $${cartItems.reduce((a, c) => a + c.price * c.qty, 0)}

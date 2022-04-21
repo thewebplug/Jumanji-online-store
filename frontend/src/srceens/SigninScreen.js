@@ -45,9 +45,7 @@ const SigninScreen = {
             <button id="bul" type="submit" class="primary">Signin</button>
           </li>
           <li>
-            <button id="register">
-              <a style="color: #ffffff" class="create-account" href="/#/register">Create your account </a>
-            </button>
+              <a id="register" style="color: #ffffff" class="create-account" href="/#/register">Create your account </a>
           </li>
         </ul>
       </form>

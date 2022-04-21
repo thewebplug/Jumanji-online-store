@@ -102,7 +102,6 @@ const OrderScreen = {
     return `
     
     <div>
-      <h1>Order ${_id}</h1>
       <div class="order">
         <div class="order-info">
           <div>
@@ -111,8 +110,8 @@ const OrderScreen = {
             ${shipping.address}, ${shipping.city}, ${shipping.postalCode}, 
             ${shipping.country}
             </div>
-            ${isDelivered ? `<div class="success">Delivered at ${deliveredAt}</div>`:
-            `<div class="error">Not Delivered</div>`}
+            ${isDelivered ? `<div class="success bolder">Delivered at ${deliveredAt}</div>`:
+            `<div class="error bolder">Not Delivered</div>`}
           </div>
           <div>
             <h2>Payment</h2>
@@ -120,7 +119,7 @@ const OrderScreen = {
               Payment Method : ${payment.paymentMethod}
             </div>
             ${isPaid ? `<div class="success">Paid at ${paidAt}</div>`:
-            `<div class="error">Not Paid</div>`}
+            `<div class="error bolder">Not Paid</div>`}
           </div>
           <div>
             <ul class="cart-list-container">
@@ -137,7 +136,7 @@ const OrderScreen = {
                   </div>
                   <div class="cart-name">
                     <div>
-                      <a href="/#/product/${item.product}">${item.name} </a>
+                      <a class="white" href="/#/product/${item.product}">${item.name} </a>
                     </div>
                     <div> Qty: ${item.qty} </div>
                   </div>
