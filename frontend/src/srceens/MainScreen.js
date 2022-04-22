@@ -63,7 +63,8 @@ const MainScreen = {
  	</div>
  </section>
 
-    <ul id="shop" data-bs-spy="scroll" data-bs-target="#header-container" data-bs-offset="0" class="scrollspy-example products" tabindex="0">
+    <ul id="shop" data-bs-spy="scroll" data-bs-target="#header-container" data-bs-offset="0" class="scrollspy-example products-main-page
+    -main-page" tabindex="0">
       ${products
         .map(
           (product) => `
@@ -72,28 +73,29 @@ const MainScreen = {
           <a href="/#/product/${product._id}">
             <img src="${product.image}" alt="${product.name}" />
           </a>
-        <div class="product-name">
-          <a href="/#/product/${product._id}">
-            ${product.name}
-          </a>
-        </div>
-        <div class="product-rating">
-          ${Rating.render({
-            value: product.rating,
-            text: `${product.numReviews} review(s)`,
-          })}
-        </div>
-        <div class="product-brand">
-          ${product.brand}
-        </div>
-        <div class="product-price">
-          $${product.price}
-        </div>
+          <div class="product-name">
+            <a href="/#/product/${product._id}">
+              ${product.name}
+            </a>
+          </div>
+          <div class="product-rating">
+            ${Rating.render({
+              value: product.rating,
+              text: `${product.numReviews} review(s)`,
+            })}
+          </div>
+          <div class="product-brand">
+            ${product.brand}
+          </div>
+          <div class="product-price">
+            $${product.price}
+          </div>
         </div>
       </li>
       `
         )
         .join('\n')}
+    </ul>
 
         
     `;

@@ -42,31 +42,31 @@ const DashboardScreen = {
         <ul class="summary-items">
           <li>
             <div class="summary-title color1">
-              <span><i class="fa fa-users"></i> Users</span>
+              <span class="orange"><i class="fa fa-users"></i> Users</span>
             </div>
-            <div class="summary-body">${summary.users[0].numUsers}</div>
+            <div class="summary-body orange">${summary.users[0].numUsers}</div>
           </li>
           <li>
             <div class="summary-title color2">
-              <span><i class="fa fa-users"></i> Orders</span>
+              <span class="orange"><i class="fa fa-users"></i> Orders</span>
             </div>
-            <div class="summary-body">${summary.orders[0].numOrders}</div>
+            <div class="summary-body orange">${summary.orders[0].numOrders}</div>
           </li>
           <li>
             <div class="summary-title color3">
-              <span><i class="fa fa-users"></i> Sales</span>
+              <span class="orange"><i class="fa fa-users"></i> Sales</span>
             </div>
-            <div class="summary-body">$${summary.orders[0].totalSales}</div>
+            <div class="summary-body orange">$${summary.orders[0].totalSales}</div>
           </li>
         </ul>
         <div class="charts">
           <div>
-            <h2>Sales</h2>
-            <div class="ct-perfect-fourth ct-chart-line"></div>
+            <h2 class="orange">Sales</h2>
+            <div class="ct-perfect-fourth ct-chart-line orange"></div>
           </div>
           <div>
-            <h2>Categories</h2>
-            <div class="ct-perfect-fourth ct-chart-pie"></div>
+            <h2 class="orange">Categories</h2>
+            <div class="ct-perfect-fourth ct-chart-pie orange"></div>
           </div>
         </div>          
       </div>

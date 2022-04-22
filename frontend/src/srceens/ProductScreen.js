@@ -42,11 +42,11 @@ const ProductScreen = {
     return `
     <div class="content">
       <div class="back-to-result">
-        <a href="/#/homescreen">Back to result </a>
+        <a class="orange" href="/#/homescreen">Back to result </a>
       </div>
       <div class="details">
         <div class="details-image">
-          <img src="${product.image}" alt="${product.name}" />
+          <img class="img-fluid" src="${product.image}" alt="${product.name}" />
         </div>
         <div class="details-info">
           <ul>
@@ -89,23 +89,23 @@ const ProductScreen = {
         </div>
       </div>
       <div class="content">
-        <h2>Reviews</h2>
+        <h2 class="orange">Reviews</h2>
         ${
           product.reviews.length === 0
-          ? `<div>There is no review,</div>`
+          ? `<div class="white">There is no review,</div>`
           : ''
         }
         <ul class="review">
           ${product.reviews.map((review) => `
               <li>
                 <div><b>${review.name}</b></div>
-                <div class="rating-container">
+                <div class="rating-container white">
                   ${Rating.render({value: review.rating})}
                   <div>
                     ${review.createdAt.substring(0, 10)}
                   </div>
                 </div>
-                <div>
+                <div class="white">
                   ${review.comment}
                 </div>
               </li>

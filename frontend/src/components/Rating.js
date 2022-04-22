@@ -55,7 +55,7 @@ const Rating = {
     }">
 </i>
 </span>  
-<span> ${props.text || ''} </span>
+<span class="white"> ${props.text || ''} </span>
     </div>
     `;
   },
