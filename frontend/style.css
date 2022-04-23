@@ -245,6 +245,7 @@ footer {
 }
 .product-name {
   line-height: 2.2rem;
+  text-align: center;
 }
 .product-brand {
   font-size: 1.2rem;
@@ -309,6 +310,9 @@ footer {
   border-radius: 0.5rem;
   background-color: transparent;
   padding: 1rem;
+}
+.back-icon {
+  font-size: 30px;
 }
 /* Cart */
 .cart {
@@ -382,6 +386,7 @@ footer {
   align-items: flex-start;
   background-color: #606060;
   color: #ff9b37;
+  width: 100%;
 }
 .create-account {
   color: #ff9b37;
@@ -416,7 +421,7 @@ footer {
 .form-items-profile {
   display: flex;
   flex-direction: column;
-  width: 34rem;
+  width: 100%;
   padding: 2rem;
   border: 0.4rem #ff9b37 solid;
   border-radius: 2rem;
@@ -559,6 +564,7 @@ footer {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  width: 100%;
 }
 .profile-info {
   flex-basis: 25%;
@@ -577,6 +583,7 @@ footer {
 table {
   width: 100%;
 }
+
 th {
   text-align: left;
 }
@@ -837,19 +844,23 @@ ul.categories {
   margin-top: 10px;
 }
 .feature {
-  width: 100px;
+  width: 100%;
   text-align: center;
+}
+.feature img {
+  width: 50px;
 }
 
 .iconsLL {
   display: flex;
   flex-direction: row;
+  width: 100%;
   justify-content: space-around;
   align-content: center;
-  font-size: 290%;
 }
 .cat-icons {
-  width: 100px;
+  width: 100%;
+  flex-basis: 20%;
 }
 .cat-icons:hover {
   transform: scale(1.3);
@@ -865,6 +876,7 @@ ul.categories {
   margin-top: 30px;
 }
 .narrow {
+  width: 100%;
   margin-bottom: 73.5px;
 }
 
@@ -874,6 +886,9 @@ ul.categories {
   border: 2px solid #ff9b37;
   padding: 10px 20px;
   border-radius: 5px;
+}
+.home-cart-icon:hover {
+  transform: scale(1.2) !important;
 }
 
 .spinner-border {
@@ -937,12 +952,66 @@ ul.categories {
     margin-top: 15px;
     height: 2px;
   }
+
+  thead {
+    font-size: 70%;
+  }
+  tbody {
+    font-size: 70%;
+  }
 }
 
 @media (max-width: 282px) {
   .form-items {
-    width: 29rem;
+    width: 25rem;
     border: 0.4rem #ff9b37 solid;
+  }
+  .form-items-profile {
+    width: 25rem;
+    border: 0.4rem #ff9b37 solid;
+  }
+
+  .landing-page-content h1 {
+    font-size: 350%;
+  }
+
+  thead {
+    font-size: 70%;
+  }
+  tbody {
+    font-size: 70%;
+  }
+
+  .signin-icon {
+    font-size: 11px !important;
+  }
+
+  aside {
+    width: 20rem;
+  }
+
+  /*Checkout Steps*/
+  .checkout-steps {
+    width: 26rem;
+    height: 60px;
+  }
+  .checkout-inner {
+    width: 22rem;
+  }
+  .checkout-words > div {
+    flex-basis: 25%;
+    text-align: center;
+    font-size: 12.4px;
+  }
+
+  .checkout-inner .steps {
+    height: 22px;
+    font-size: 1.1rem;
+  }
+
+  .line {
+    margin-top: 10px;
+    height: 2px;
   }
 }
 

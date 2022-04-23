@@ -12,12 +12,12 @@ const HomeScreen = {
     return `
   
 
-    <ul class="products">
+    <ul data-aos="" class="products">
       ${products
         .map(
           (product) => `
       <li>
-        <div class="product">
+        <div class="product" data-aos="fade-right">
           <a href="/#/product/${product._id}">
             <img src="${product.image}" alt="${product.name}" />
           </a>

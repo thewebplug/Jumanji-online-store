@@ -17,7 +17,7 @@ const Header = {
   </form>        
   </div>
   <div class="sign-in">
-    ${name ? `<a class="profile-icon" href="/#/profile"><i class="fas fa-user-alt"></i></a>` : `<a class="profile" href="/#/signin">Sign-In</a>`}    
+    ${name ? `<a class="profile-icon" href="/#/profile"><i class="fas fa-user-alt"></i></a>` : `<a class="signin-icon" href="/#/signin">Sign-In</a>`}    
       <a class="cart-icon" href="/#/cart">
       <i class="fal fa fa-shopping-cart"></i></a>
       ${isAdmin ? `<a class="dashboard-icon" href="/#/dashboard">Dashboard</a>` : ''}

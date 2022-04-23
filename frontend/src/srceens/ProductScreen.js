@@ -42,8 +42,8 @@ const ProductScreen = {
     return `
     <div class="content">
       <div class="back-to-result">
-        <a class="orange" href="/#/homescreen">Back to result </a>
-      </div>
+        <a class="orange" href="/#/homescreen"><i class="fas fa-chevron-left back-icon"></i></a>
+      </div><br>
       <div class="details">
         <div class="details-image">
           <img class="img-fluid" src="${product.image}" alt="${product.name}" />
