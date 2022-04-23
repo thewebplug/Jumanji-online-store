@@ -593,6 +593,15 @@ tbody > tr:nth-child(odd) {
 td {
   padding: 0.5rem;
 }
+#message-overlay-close-button {
+  border: 0.2rem #ff9b37 solid;
+  color: #ff9b37;
+  background: transparent;
+}
+#message-overlay-close-button:hover {
+  background-color: #ff9b37;
+  color: #ffffff;
+}
 /* Dashboard */
 .dashboard {
   display: flex;
@@ -919,6 +928,10 @@ ul.categories {
 }
 @media (max-width: 558px) {
   .form-items {
+    width: 35rem;
+    height: 60rem;
+  }
+  .form-items-profile {
     width: 35rem;
     height: 60rem;
   }
