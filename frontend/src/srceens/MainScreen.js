@@ -31,27 +31,27 @@ const MainScreen = {
                <div class="iconsLL text-center">
                   <div class="cat-icons col-md-3">
                     <div class="feature">
-                    <a href="/#/homescreen?q=trainers"><img data-aos="zoom-in-right" data-aos-once="true" data-aos-duration="1000" src="https://img.icons8.com/wired/60/ff9b37/trainers.png"></a>
+                    <a href="/#/homescreen?q=trainers"><img data-aos="zoom-in-right" data-aos-duration="1000" src="https://img.icons8.com/wired/60/ff9b37/trainers.png"></a>
                     </div>
                   </div>
                 
                 
                   <div class="cat-icons col-md-3">
                     <div class="feature">
-                      <a href="/#/homescreen?q=shirt"><img data-aos="zoom-in-right" data-aos-once="true" data-aos-duration="1000" src="https://img.icons8.com/pastel-glyph/60/ff9b37/t-shirt--v3.png"></a>
+                      <a href="/#/homescreen?q=shirt"><img data-aos="zoom-in-right" data-aos-duration="1000" src="https://img.icons8.com/pastel-glyph/60/ff9b37/t-shirt--v3.png"></a>
                     </div>
                   </div>
                   
                   <div class="cat-icons col-md-3">
                     <div class="feature">
-                      <a href="/#/homescreen?q=bandana"><img data-aos="zoom-in-right" data-aos-once="true" data-aos-duration="1000" src="https://img.icons8.com/ios-glyphs/60/ff9b37/bandana.png"/></a>
+                      <a href="/#/homescreen?q=bandana"><img data-aos="zoom-in-right" data-aos-duration="1000" src="https://img.icons8.com/ios-glyphs/60/ff9b37/bandana.png"/></a>
                     </div>
                   </div>
                 
                 
                   <div class="cat-icons col-md-3">
                     <div class="feature">
-                      <a href="/#/homescreen?q=cap"><img data-aos="zoom-in-right" data-aos-once="true" data-aos-duration="1000" src="https://img.icons8.com/pastel-glyph/60/ff9b37/cap--v1.png"/></a>
+                      <a href="/#/homescreen?q=cap"><img data-aos="zoom-in-right" data-aos-duration="1000" src="https://img.icons8.com/pastel-glyph/60/ff9b37/cap--v1.png"/></a>
                     </div>
                   </div>
                </div>

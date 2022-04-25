@@ -381,12 +381,14 @@ footer {
 }
 /* Form */
 .form-container {
+  flex-basis: 50%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   background-color: #606060;
   color: #ff9b37;
   width: 100%;
+  margin-top: 50px;
 }
 .create-account {
   color: #ff9b37;
@@ -435,6 +437,17 @@ footer {
   width: 100%;
   margin-bottom: 1rem;
   margin-top: 1rem;
+}
+/* Signin */
+.signin-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.illustration {
+  width: 100%;
+  flex-basis: 40%;
 }
 /* Checkout */
 .checkout-steps {
@@ -926,10 +939,36 @@ ul.categories {
     margin-top: 20px;
   }
 }
+@media (max-width: 1024px) {
+  .form-container {
+    margin-top: 0px;
+  }
+  .signin-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .illustration {
+    width: 100%;
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center !important;
+  }
+  .illustration-inner {
+    width: 60%;
+  }
+}
+@media (max-width: 760px) {
+  .illustration-inner {
+    width: 100%;
+  }
+}
 @media (max-width: 558px) {
   .form-items {
     width: 35rem;
-    height: 60rem;
+    height: 40rem;
   }
   .form-items-profile {
     width: 35rem;
