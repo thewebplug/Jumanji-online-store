@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:800|Poppins:500");
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -96,7 +96,7 @@ button.primary:hover {
   margin: 2rem;
 }
 .fw {
-  width: 100%;
+  width: 100% !important;
 }
 #paypal-button-container {
   width: 100%;
@@ -513,6 +513,7 @@ footer {
   flex-wrap: wrap;
   padding: 1rem;
   justify-content: space-between;
+  font-size: 12px;
 }
 .order h2 {
   margin: 0;
@@ -853,10 +854,10 @@ ul.categories {
 }
 
 .landing-page-content h1 {
-  font-family: "Open Sans", sans-serif;
-  color: #000;
+  font-family: "Montserrat", sans-serif;
+  color: #ff9b37;
   font-size: 450%;
-  text-shadow: 3px 3px #ff9b37;
+  font-weight: bolder;
   padding: 0;
 }
 .main-text {
@@ -918,6 +919,16 @@ ul.categories {
   width: 200px;
   height: 200px;
 }
+
+.paystack-btn {
+  background-color: #00c4f8;
+}
+
+.paystack-image {
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
 /*media queries*/
 @media (max-width: 1266px) {
   .profile-info {
@@ -968,7 +979,7 @@ ul.categories {
 @media (max-width: 558px) {
   .form-items {
     width: 35rem;
-    height: 40rem;
+    height: 55yrem;
   }
   .form-items-profile {
     width: 35rem;
@@ -1064,6 +1075,9 @@ ul.categories {
   .line {
     margin-top: 10px;
     height: 2px;
+  }
+  .cart {
+    font-size: 13px;
   }
 }
 

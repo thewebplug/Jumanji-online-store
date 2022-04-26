@@ -87,7 +87,7 @@ const MainScreen = {
             ${product.brand}
           </div>
           <div class="product-price">
-            $${product.price}
+          ₦${product.price}
           </div>
         </div>
       </li>

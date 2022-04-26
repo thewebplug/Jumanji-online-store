@@ -34,7 +34,7 @@ export const hideLoading = () => {
 export const showMessage = (message, callback) => {
   document.getElementById('message-overlay').innerHTML = `
   <div class="overlay-inner">
-    <div id="message-overlay-content">${message}</div>
+    <div class="orange" id="message-overlay-content">${message}</div>
     <button id="message-overlay-close-button">OK</button>
   </div>
   `;

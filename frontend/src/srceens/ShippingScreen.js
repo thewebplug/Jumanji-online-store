@@ -10,6 +10,7 @@ const ShippingScreen = {
         setShipping({
           address: document.getElementById('address').value,
           city: document.getElementById('city').value,
+          phoneNumber: document.getElementById('phonenumber').value,
           postalCode: document.getElementById('postalCode').value,
           country: document.getElementById('country').value,
         });
@@ -21,7 +22,7 @@ const ShippingScreen = {
     if (!name) {
       document.location.hash = '/';
     }
-    const { address, city, postalCode, country } = getShipping();
+    const { address, city, phoneNumber, postalCode, country } = getShipping();
     return `
     ${CheckoutSteps.render({ step1: true, step2: true })}
     <div class="form-container">
@@ -37,6 +38,10 @@ const ShippingScreen = {
           <li>
             <label for="city">City</label>
             <input type="text" name="city" id="city" value="${city}" />
+          </li>
+          <li>
+            <label for="city">Phone Number</label>
+            <input type="number" name="phonenumber" id="phonenumber" value="${phoneNumber}" />
           </li>
           <li>
             <label for="postalCode">Postal Code</label>

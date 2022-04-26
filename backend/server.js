@@ -27,8 +27,11 @@ app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
 app.use('/api/orders', orderRouter);
-app.get('/api/paypal/clientId', (req, res) => {
-  res.send({clientId: config.PAYPAL_CLIENT_ID});
+app.get('/api/paystack/publicKey', (req, res) => {
+  res.send({publicKey: config.PAYSTACK_PUBLIC_KEY});
+});
+app.get('/api/paystack/secretKey', (req, res) => {
+  res.send({secretKey: config.PAYSTACK_SECRET_KEY});
 });
 app.use('/uploads', express.static('uploads'));
 app.use(express.static('frontend'));

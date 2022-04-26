@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import {
   parseRequestUrl,
   showLoading,
@@ -5,82 +6,74 @@ import {
   showMessage,
   rerender,
 } from '../utils';
-import { getOrder, getPaypalClientId, payOrder, deliverOrder } from '../api';
+import { getOrder, getPaystackPublicKey, payOrder, deliverOrder, verifyTransaction } from '../api';
 import { getUserInfo } from '../localStorage';
 
-const addPaypalSdk = async (totalPrice) => {
-  const clientId = await getPaypalClientId();
-  showLoading();
-  if (!window.paypal) {
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://www.paypalobjects.com/api/checkout.js';
-    script.async = true;
-    script.onload = () => handlePayment(clientId, totalPrice);
-    document.body.appendChild(script);
-  } else {
-    handlePayment(clientId, totalPrice);
-  }
-};
-const handlePayment = (clientId, totalPrice) => {
-  window.paypal.Button.render(
-    {
-      env: 'production',
-      client: {
-        sandbox: '',
-        production: clientId,
-      },
-      locale: 'en_NG',
-      style: {
-        size: 'responsive',
-        color: 'gold',
-        shape: 'pill',
-      },
-
-      commit: true,
-      payment(data, actions) {
-        return actions.payment.create({
-          transactions: [
-            {
-              amount: {
-                total: totalPrice,
-                currency: 'USD',
-              },
-            },
-          ],
-        });
-      },
-      onAuthorize(data, actions) {
-        return actions.payment.execute().then(async () => {
-          showLoading();
-          await payOrder(parseRequestUrl().id, {
-            orderID: data.orderID,
-            payerID: data.payerID,
-            paymentID: data.paymentID,
-          });
-          hideLoading();
-          showMessage('Payment was successfull.', () => {
-            rerender(OrderScreen);
-          });
-        });
-      },
-    },
-    '#paypal-button'
-  ).then(() => {
-    hideLoading();
-  });
-};
 const OrderScreen = {
   after_render: async () => {
     const request = parseRequestUrl();
-    if (document.getElementById('deliver-order-button')) {
-      document.addEventListener('click', async () => {
+    if(document.getElementById('deliver-order-button')){
+      document.getElementById('deliver-order-button').addEventListener('click', async() => {
         showLoading();
         await deliverOrder(request.id);
         hideLoading();
-        showMessage('Order Delivered.');
+        showMessage('Ordere Delivred');
         rerender(OrderScreen);
+        
       });
+    }
+
+    const {totalPrice, isPaid} = await getOrder(request.id)
+    const {email} = getUserInfo();
+    const publicKey = await getPaystackPublicKey();
+    
+    const paymentForm = document.getElementById('paymentForm');
+    if(!isPaid){
+      paymentForm.addEventListener('submit', payWithPaystack, false);
+    }
+    function payWithPaystack() {
+      const handler = PaystackPop.setup({
+        key: publicKey, // Replace with your public key
+        email,
+        amount: totalPrice * 100, // the amount value is multiplied by 100 to convert to the lowest currency unit
+        currency: 'NGN', // Use GHS for Ghana Cedis or USD for US Dollars
+        ref: `${Math.floor((Math.random() * 1000000000) + 1)}`, // Replace with a reference you generated
+        callback(response) {
+          // this happens after the payment is completed successfully
+          console.log(response)
+          const {reference} = response;
+          // Make an AJAX call to your server with the reference to verify the transaction
+          (async () => {
+            const innerChecking = await verifyTransaction(reference);
+            console.log(innerChecking.status);
+            console.log(innerChecking.gateway_response);
+            if(innerChecking.status == "success" && innerChecking.gateway_response == "Approved") {
+              showLoading();
+              await payOrder(parseRequestUrl().id, {
+                reference,
+                transID: response.trans,
+                transactionID: response.transaction,
+                trxrefID: response.trxref,
+              });
+                hideLoading();
+                showMessage(`Payment complete! Reference: ${  reference}`, () => {
+                rerender(OrderScreen);
+              });
+            }else{
+              showMessage(`There's been an Issue with your payment Reference: ${  reference}`, () => {
+                rerender(OrderScreen);
+              });
+            }
+          })();
+            
+
+            
+        },
+        onClose() {
+          showMessage('Transaction was not completed, window closed.');
+        },
+      });
+      handler.openIframe();
     }
   },
   render: async () => {
@@ -93,19 +86,15 @@ const OrderScreen = {
       orderItems,
       itemsPrice,
       shippingPrice,
-      taxPrice,
       totalPrice,
       isDelivered,
       deliveredAt,
       isPaid,
       paidAt,
     } = await getOrder(request.id);
-    if (!isPaid) {
-      addPaypalSdk(totalPrice);
-    }
+   
     return `
     <div>
-    <h1>Order ${_id}</h1>
       <div class="order">
         <div class="order-info">
           <div>
@@ -151,7 +140,7 @@ const OrderScreen = {
                     </div>
                     <div> Qty: ${item.qty} </div>
                   </div>
-                  <div class="cart-price"> $${item.price}</div>
+                  <div class="cart-price"> ₦${item.price}</div>
                 </li>
                 `
                 )
@@ -164,11 +153,25 @@ const OrderScreen = {
                 <li>
                   <h2>Order Summary</h2>
                  </li>
-                 <li><div>Items</div><div>$${itemsPrice}</div></li>
-                 <li><div>Shipping</div><div>$${shippingPrice}</div></li>
-                 <li><div>Tax</div><div>$${taxPrice}</div></li>
-                 <li class="total"><div>Order Total</div><div>$${totalPrice}</div></li>                  
-                 <li><div class="fw" id="paypal-button"></div></li>
+                 <li><div>Items</div><div>₦${itemsPrice}</div></li>
+                 <li><div>Shipping</div><div>₦${shippingPrice}</div></li>
+                 <li class="total"><div>Order Total</div><div>₦${totalPrice}</div></li>  
+                 <br>                
+                 <li>
+                  ${
+                    !isPaid ?
+                    `
+                      <form class="fw" id="paymentForm">
+                      <div class="form-submit">
+                        <button class="fw paystack-btn" type="submit" onclick="payWithPaystack()">
+                         <img class="paystack-image" src="images/paystack-banner.png" width="200" height="40">
+                        </button>
+                      </div>
+                      </form>
+                    `
+                    : ''
+                  }
+                 </li>
                  <li>
                  ${
                    isPaid && !isDelivered && isAdmin

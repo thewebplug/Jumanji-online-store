@@ -88,7 +88,6 @@ orderRouter.post(
       shipping: req.body.shipping,
       payment: req.body.payment,
       itemsPrice: req.body.itemsPrice,
-      taxPrice: req.body.taxPrice,
       shippingPrice: req.body.shippingPrice,
       totalPrice: req.body.totalPrice,
     });
@@ -148,5 +147,6 @@ orderRouter.put(
     }
   })
 );
+
 
 export default orderRouter;

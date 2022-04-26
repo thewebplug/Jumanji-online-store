@@ -356,9 +356,9 @@ export const getSummary = async () => {
 };
 
 
-export const getPaypalClientId = async () => {
+export const getPaystackPublicKey = async () => {
   const response = await axios({
-    url: `${apiUrl}/api/paypal/clientId`,
+    url: `${apiUrl}/api/paystack/publicKey`,
     headers: {
       'Content-Type': 'application/json',
     },
@@ -366,7 +366,20 @@ export const getPaypalClientId = async () => {
   if (response.statusText !== 'OK') {
     throw new Error(response.data.message);
   }
-  return response.data.clientId;
+  return response.data.publicKey;
+};
+
+export const getPaystackSecretKey = async () => {
+  const response = await axios({
+    url: `${apiUrl}/api/paystack/secretKey`,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  if (response.statusText !== 'OK') {
+    throw new Error(response.data.message);
+  }
+  return response.data.secretKey;
 };
 
 
@@ -390,3 +403,22 @@ export const payOrder = async (orderId, paymentResult) => {
     return { error: err.response ? err.response.data.message : err.message };
   }
 };
+
+export const verifyTransaction = async (reference) => {
+  try {
+    const secretKey = await getPaystackSecretKey();
+    const response = await axios({
+      url: `https://api.paystack.co/transaction/verify/${reference}`,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${secretKey}`,
+      },
+    });
+    
+    return response.data.data;
+  } catch (err) {
+    return { error: err.response ? err.response.data.message : err.message };
+  }
+  
+}

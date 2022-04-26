@@ -22,16 +22,14 @@ const convertCartToOrder = () => {
     document.location.hash = '/payment';
   }
   const itemsPrice = orderItems.reduce((a, c) => a + c.price * c.qty, 0);
-  const shippingPrice = itemsPrice > 100 ? 0 : 10;
-  const taxPrice = Math.round(0.15 * itemsPrice * 100) / 100;
-  const totalPrice = itemsPrice + shippingPrice + taxPrice;
+  const shippingPrice = itemsPrice > 10000 ? 0 : 200;
+  const totalPrice = itemsPrice + shippingPrice;
   return {
     orderItems,
     shipping,
     payment,
     itemsPrice,
     shippingPrice,
-    taxPrice,
     totalPrice,
   };
 };
@@ -59,7 +57,6 @@ const PlaceOrderScreen = {
       payment,
       itemsPrice,
       shippingPrice,
-      taxPrice,
       totalPrice,
     } = convertCartToOrder();
     return `
@@ -104,7 +101,7 @@ const PlaceOrderScreen = {
                     </div>
                     <div> Qty: ${item.qty} </div>
                   </div>
-                  <div class="cart-price"> $${item.price}</div>
+                  <div class="cart-price"> ₦${item.price}</div>
                 </li>
                 `
                 )
@@ -117,10 +114,9 @@ const PlaceOrderScreen = {
                 <li>
                   <h2>Order Summary</h2>
                  </li>
-                 <li><div>Items</div><div class="white">$${itemsPrice}</div></li>
-                 <li><div>Shipping</div><div class="white">$${shippingPrice}</div></li>
-                 <li><div>Tax</div><div class="white">$${taxPrice}</div></li>
-                 <li class="total"><div>Order Total</div><div>$${totalPrice}</div></li> 
+                 <li><div>Items</div><div class="white">₦${itemsPrice}</div></li>
+                 <li><div>Shipping</div><div class="white">₦${shippingPrice}</div></li>
+                 <li class="total"><div>Order Total</div><div>₦${totalPrice}</div></li> 
                  <li>
                  <button id="placeorder-button" class="primary fw">
                  Place Order

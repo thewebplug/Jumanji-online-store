@@ -43,6 +43,7 @@ const OrderListScreen = {
               <th>DATE</th>
               <th>TOTAL</th>
               <th>USER</th>
+              <th>PHONE NUMBER</th>
               <th>PAID AT</th>
               <th>DELIVERED AT</th>
               <th class="tr-action">ACTION</th>
@@ -57,6 +58,7 @@ const OrderListScreen = {
               <td>${order.createdAt}</td>
               <td>${order.totalPrice}</td>
               <td>${order.user.name}</td>
+              <td>${order.shipping.phoneNumber}</td>
               <td>${order.paidAt || 'No'}</td>
               <td>${order.deliveredAt || 'No'}</td>
               <td>
