@@ -134,7 +134,7 @@ const OrderScreen = {
                   </div>
                   <div class="cart-name">
                     <div>
-                      <a href="/#/product/${item.product}">${item.name} </a>
+                      <a class="white" href="/#/product/${item.product}">${item.name} </a>
                     </div>
                     <div> Qty: ${item.qty} </div>
                   </div>
