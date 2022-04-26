@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:800|Poppins:500");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -851,13 +850,11 @@ ul.categories {
   vertical-align: middle;
   text-align: center;
 }
-
 .landing-page-content h1 {
   font-family: "Open Sans", sans-serif;
   color: #000;
-  text-shadow: 3px 3px #ff9b37;
   font-size: 450%;
-  font-weight: bolder;
+  text-shadow: 3px 3px #ff9b37;
   padding: 0;
 }
 .main-text {
