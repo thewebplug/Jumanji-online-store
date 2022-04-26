@@ -43,7 +43,6 @@ const router = async () => {
     (request.resource ? `/${request.resource}` : '/') +
     (request.id ? '/:id' : '') +
     (request.verb ? `/${request.verb}` : '');
-  console.log(request);
   const screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
   const header = document.getElementById('header-container');
   header.innerHTML = await Header.render();

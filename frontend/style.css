@@ -513,7 +513,6 @@ footer {
   flex-wrap: wrap;
   padding: 1rem;
   justify-content: space-between;
-  font-size: 12px;
 }
 .order h2 {
   margin: 0;
@@ -854,8 +853,9 @@ ul.categories {
 }
 
 .landing-page-content h1 {
-  font-family: "Montserrat", sans-serif;
-  color: #ff9b37;
+  font-family: "Open Sans", sans-serif;
+  color: #000;
+  text-shadow: 3px 3px #ff9b37;
   font-size: 450%;
   font-weight: bolder;
   padding: 0;
@@ -1052,7 +1052,12 @@ ul.categories {
   aside {
     width: 20rem;
   }
-
+  .cart {
+    font-size: 13px;
+  }
+  .order {
+    font-size: 12px !important;
+  }
   /*Checkout Steps*/
   .checkout-steps {
     width: 26rem;
@@ -1075,9 +1080,6 @@ ul.categories {
   .line {
     margin-top: 10px;
     height: 2px;
-  }
-  .cart {
-    font-size: 13px;
   }
 }
 

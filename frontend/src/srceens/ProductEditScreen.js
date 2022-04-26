@@ -53,8 +53,8 @@ const ProductEditScreen = {
     const product = await getProduct(request.id);
     return `
     <div class="content">
-      <div>
-        <a href="/#/productlist">Back to products</a>
+      <div class="back-to-result">
+        <a class="orange" href="/#/productlist"><i class="fas fa-chevron-left back-icon"></i></a>
       </div>
       <div class="form-container">
         <form id="edit-product-form">
