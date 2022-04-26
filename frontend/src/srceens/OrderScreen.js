@@ -40,13 +40,11 @@ const OrderScreen = {
         ref: `${Math.floor((Math.random() * 1000000000) + 1)}`, // Replace with a reference you generated
         callback(response) {
           // this happens after the payment is completed successfully
-          console.log(response)
           const {reference} = response;
           // Make an AJAX call to your server with the reference to verify the transaction
           (async () => {
             const innerChecking = await verifyTransaction(reference);
-            console.log(innerChecking.status);
-            console.log(innerChecking.gateway_response);
+            
             if(innerChecking.status == "success" && innerChecking.gateway_response == "Approved") {
               showLoading();
               await payOrder(parseRequestUrl().id, {
