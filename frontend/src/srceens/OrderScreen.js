@@ -45,7 +45,7 @@ const OrderScreen = {
           (async () => {
             const innerChecking = await verifyTransaction(reference);
             
-            if(innerChecking.status == "success" && innerChecking.gateway_response == "Approved") {
+            if(innerChecking.status == "success" && innerChecking.gateway_response == "Successful") {
               showLoading();
               await payOrder(parseRequestUrl().id, {
                 reference,
