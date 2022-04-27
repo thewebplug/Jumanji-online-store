@@ -2,7 +2,7 @@ const Aside = {
     render: async () => `
      <div class="aside-header">
       <div>SHOP BY CATEGORY</div>
-      <button class="aside-close-button" id="aside-close-button">x</button>
+      <button class="aside-close-button" id="aside-close-button"><i class="fab fa-xbox"></i></button>
     </div>
     <div class="aside-body">
       <ul class="categories">

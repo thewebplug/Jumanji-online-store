@@ -779,6 +779,13 @@ aside.open {
   font-size: 2rem;
   cursor: pointer;
   padding: 0;
+  background: transparent;
+  border: none;
+}
+.aside-close-button:hover {
+  border: none;
+  font-size: 2.8rem;
+  transition: 200ms;
 }
 ul.categories {
   padding: 0;
