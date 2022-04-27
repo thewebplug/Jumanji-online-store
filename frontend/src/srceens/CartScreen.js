@@ -65,7 +65,7 @@ const CartScreen = {
     return `
     <br>
     <div class="back-to-result" style="padding-left: 20px;">
-      <a class="orange" href="/#/homescreen"><i class="fas fa-chevron-left back-icon"></i></a>
+      <a class="orange" href="/#/"><i class="fas fa-chevron-left back-icon"></i></a>
     </div><br>    
     <div class="content cart">
       <div class="cart-list">

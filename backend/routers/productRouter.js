@@ -33,9 +33,9 @@ productRouter.post(
   expressAsyncHandler(async (req, res) => {
     const product = new Product({
       name: 'sample product',
-      description: 'sample desc',
-      category: 'sample category',
-      brand: 'sample brand',
+      description: 'Sliders. Drip with style',
+      category: 'Bandanas',
+      brand: 'Sliders',
       image: '/images/product-1.jpg',
     });
     const createdProduct = await product.save();
