@@ -59,3 +59,6 @@ $ npm start
 # CREDIT
 
 ### This ecommerece website is based off [JS Amazona Template](https://github.com/basir/node-javascript-ecommerce/blob/master/README.md), developed by [Bassir Jafarzadeh](https://github.com/basir)
+
+# LICENSE
+## [MIT](LICENSE)
