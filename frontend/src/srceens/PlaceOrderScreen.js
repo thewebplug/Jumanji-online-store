@@ -22,7 +22,7 @@ const convertCartToOrder = () => {
     document.location.hash = '/payment';
   }
   const itemsPrice = orderItems.reduce((a, c) => a + c.price * c.qty, 0);
-  const shippingPrice = itemsPrice > 10000 ? 0 : 1;
+  const shippingPrice = itemsPrice > 10000 ? 0 : 200;
   const totalPrice = itemsPrice + shippingPrice;
   return {
     orderItems,
