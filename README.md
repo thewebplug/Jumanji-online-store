@@ -32,7 +32,10 @@ PAYSTACK_PUBLIC_KEY="your paystack public key"
 PAYSTACK_SECRET_KEY="your paystack secret key"
 ```
 
-### 4. Run Backend
+### 4. Create dist file in root folder
+
+
+### 5. Run Backend
 
 ```
 $ npm install
@@ -40,7 +43,7 @@ $ npm run build
 $ npm run start
 ```
 
-### 5. Run Frontend
+### 6. Run Frontend
 
 ```
 #open new terminal
@@ -49,7 +52,7 @@ $ npm install
 $ npm start
 ```
 
-### 6. Create Admin User
+### 7. Create Admin User
 
 - Run this in your browser: http://localhost:5000/api/users/createadmin
 - Note the admin email and password
