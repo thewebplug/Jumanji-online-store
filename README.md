@@ -32,7 +32,7 @@ PAYSTACK_PUBLIC_KEY="your paystack public key"
 PAYSTACK_SECRET_KEY="your paystack secret key"
 ```
 
-### 4. Create dist file in root folder
+### 4. Create dist folder in root folder
 
 
 ### 5. Run Backend
