@@ -19,11 +19,11 @@ const HomeScreen = {
       <li>
         <div class="product" data-aos="fade-right">
           <a href="/#/product/${product._id}">
-            <img src="${product.image}" alt="${product.name}" />
+            <img src="../images/bandana.jpg" alt="${product.name}" />
           </a>
         <div class="product-name">
           <a href="/#/product/${product._id}">
-            ${product.name}
+            ${true}
           </a>
         </div>
         <div class="product-rating">

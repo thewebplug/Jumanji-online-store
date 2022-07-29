@@ -17,7 +17,7 @@ const OrderScreen = {
         showLoading();
         await deliverOrder(request.id);
         hideLoading();
-        showMessage('Ordere Delivred');
+        showMessage('Order Delivred');
         rerender(OrderScreen);
         
       });
@@ -130,7 +130,7 @@ const OrderScreen = {
                   (item) => `
                 <li>
                   <div class="cart-image">
-                    <img src="${item.image}" alt="${item.name}" />
+                    <img src="../images/bandana.jpg" alt="${item.name}" />
                   </div>
                   <div class="cart-name">
                     <div>

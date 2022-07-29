@@ -70,7 +70,7 @@ const MainScreen = {
       <li>
         <div data-aos="fade-right" class="product">
           <a href="/#/product/${product._id}">
-            <img src="${product.image}" alt="${product.name}" />
+            <img src="../images/bandana.jpg" alt="${product.name}" />
           </a>
           <div class="product-name">
             <a  href="/#/product/${product._id}">

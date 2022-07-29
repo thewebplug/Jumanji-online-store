@@ -46,7 +46,7 @@ const ProductScreen = {
       </div><br>
       <div class="details">
         <div class="details-image">
-          <img class="img-fluid" src="${product.image}" alt="${product.name}" />
+          <img class="img-fluid" src="../images/bandana.jpg" alt="${product.name}" />
         </div>
         <div class="details-info">
           <ul>

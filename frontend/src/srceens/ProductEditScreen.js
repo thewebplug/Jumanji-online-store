@@ -76,9 +76,7 @@ const ProductEditScreen = {
             </li>
             <li>
               <label for="image">Image (680 x 830)</label>
-              <input type="text" name="image" value="${
-                product.image
-              }" id="image" />
+              <input type="text" name="image" value="../images/bandana.jpg" id="image" />
               <input type="file" name="image-file" id="image-file" />
             </li>
             <li>
